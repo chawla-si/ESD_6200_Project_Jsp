@@ -24,7 +24,11 @@
 
 <h2>Book List</h2>
 
-<a href="/new">Add New Book</a>
+<a href="/books/new">Add New Book</a>
+
+<c:if test="${param.success == 'true'}">
+    <p style="color:green;">Book added successfully!</p>
+</c:if>
 
 <table>
     <thead>
