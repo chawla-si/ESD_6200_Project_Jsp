@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
@@ -110,15 +111,24 @@ public class UserController {
 	 }
 	 
 	 @PutMapping("/increase/{bookId}")
-	    public String increaseBookQuantity(@PathVariable Long bookId) throws Exception {
-	        adminService.increaseBookQuantity(bookId);
-	        return "redirect:/books/?updated=true";
-	    }
+	 public String increaseBookQuantity(@PathVariable Long bookId, RedirectAttributes redirectAttributes) {
+	     try {
+	         adminService.increaseBookQuantity(bookId);
+	         redirectAttributes.addAttribute("updated", "true");
+	     } catch (Exception e) {
+	         redirectAttributes.addAttribute("error", "true");
+	     }
+	     return "redirect:/books/";
+	 }
 
-	    // Decrease book quantity
-	    @PutMapping("/decrease/{bookId}")
-	    public String decreaseBookQuantity(@PathVariable Long bookId) throws Exception {
-	        adminService.decreaseBookQuantity(bookId);
-	        return "redirect:/books/?updated=true";
-	    }
+	 @PutMapping("/decrease/{bookId}")
+	 public String decreaseBookQuantity(@PathVariable Long bookId, RedirectAttributes redirectAttributes) {
+	     try {
+	         adminService.decreaseBookQuantity(bookId);
+	         redirectAttributes.addAttribute("updated", "true");
+	     } catch (Exception e) {
+	         redirectAttributes.addAttribute("error", "true");
+	     }
+	     return "redirect:/books/";
+	 }
 }

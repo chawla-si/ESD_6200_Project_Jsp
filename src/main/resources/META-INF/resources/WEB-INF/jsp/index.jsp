@@ -34,6 +34,14 @@
     <p style="color: red;">Book deleted successfully!</p>
 </c:if>
 
+<c:if test="${param.updated == 'true'}">
+    <p style="color:blue;">Book quantity updated successfully!</p>
+</c:if>
+
+<c:if test="${param.error == 'true'}">
+    <p style="color:red;">An error occurred while updating the book quantity.</p>
+</c:if>
+
 <table>
     <thead>
         <tr>
