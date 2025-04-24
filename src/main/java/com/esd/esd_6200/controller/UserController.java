@@ -84,7 +84,7 @@ public class UserController {
 //	     }
 
 	     // Save the image file
-		 String uploadDir = "src/main/resources/static/uploads/";
+		 String uploadDir = "uploads/";
 	     String fileName = UUID.randomUUID() + "_" + imageFile.getOriginalFilename();
 	     Path imagePath = Paths.get(uploadDir + fileName);
 	     Files.createDirectories(imagePath.getParent());
