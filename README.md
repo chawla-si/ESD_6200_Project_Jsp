@@ -43,12 +43,17 @@ cd into tth folder
 
 Run: mvn spring-boot:run
 
+```
+### Access the App:
+http://localhost:8080/
 
-![Screenshot 2025-04-24 at 4 30 59 PM](https://github.com/user-attachments/assets/ec465993-ad29-4930-9ddf-da508eb0fe4f)
-![Screenshot 2025-04-24 at 4 30 37 PM](https://github.com/user-attachments/assets/af169bda-5b8c-4e8b-8ed5-60359b1595c4)
-![Screenshot 2025-04-24 at 4 30 15 PM](https://github.com/user-attachments/assets/de3a436e-0ea5-4c5f-ba75-0aca71b41ff3)
-![Screenshot 2025-04-24 at 4 30 04 PM](https://github.com/user-attachments/assets/fd9c0588-fb2d-4834-a0f1-fd0c1473ba2c)
-![Screenshot 2025-04-24 at 4 29 47 PM](https://github.com/user-attachments/assets/b8bb6045-e6bf-4a50-96d9-2c1584c07cf9)
-![Screenshot 2025-04-24 at 4 29 14 PM](https://github.com/user-attachments/assets/99dd0410-52e9-48bb-8baa-1988a473a309)
+Application screenshots:
 
 
+![Screenshot 2025-04-24 at 4 29 47 PM](https://github.com/user-attachments/assets/88d24ce7-f580-4895-9437-93f974e4b044)
+
+![Screenshot 2025-04-24 at 4 30 04 PM](https://github.com/user-attachments/assets/925b4c09-6f95-4c3c-b1cf-32ec90039972)
+![Screenshot 2025-04-24 at 4 30 15 PM](https://github.com/user-attachments/assets/e504ae44-b7a1-41fa-b1ea-1a229e7e7356)
+![Screenshot 2025-04-24 at 4 30 37 PM](https://github.com/user-attachments/assets/43e56258-a5a5-4573-a2ba-b41c47188db2)
+
+![Screenshot 2025-04-24 at 4 30 59 PM](https://github.com/user-attachments/assets/f6b7057e-064c-4441-b33d-d5b131a5f409)
