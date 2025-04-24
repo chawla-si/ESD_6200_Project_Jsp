@@ -35,10 +35,10 @@ public class BookService {
         this.checkoutRepository = checkoutRepository;
     }
     
-//    public List<Book> getAllBooks()
-//    {
-//        return bookRepository.findAll();
-//    }
+    public List<Book> getAllBooks()
+    {
+        return bookRepository.findAll();
+    }
     
     public Book findBookById(Long id)
     {

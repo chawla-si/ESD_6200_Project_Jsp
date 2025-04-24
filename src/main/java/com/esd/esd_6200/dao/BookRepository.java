@@ -31,6 +31,11 @@ public class BookRepository {
         this.sessionFactory = entityManager.unwrap(Session.class).getSessionFactory();
     }
     
+    public List<Book> findAll() {
+        try (Session session = HibernateUtil.getSessionFactory().openSession()) {
+            return session.createQuery("FROM Book", Book.class).list();
+        }
+    }
 
     public List<Book> findAll(Pageable pageable) {
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {

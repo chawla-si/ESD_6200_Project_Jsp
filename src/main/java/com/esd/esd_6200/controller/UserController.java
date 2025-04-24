@@ -37,23 +37,30 @@ public class UserController {
 	 @Autowired
 	    private AdminService adminService;
 
+//	 @GetMapping("/")
+//	    public String home(@RequestParam(defaultValue = "0") int page,
+//	                       @RequestParam(defaultValue = "15") int size,
+//	                       @RequestParam(defaultValue = "id") String sortBy,
+//	                       @RequestParam(defaultValue = "ASC") String direction,
+//	                       Model model) {
+//
+//	        Page<Book> bookPage = bookService.getPaginatedBooks(page, size, sortBy, direction);
+//
+//	        model.addAttribute("books", bookPage.getContent());
+//	        model.addAttribute("currentPage", page);
+//	        model.addAttribute("totalPages", bookPage.getTotalPages());
+//	        model.addAttribute("sortBy", sortBy);
+//	        model.addAttribute("direction", direction);
+//
+//	        return "index";
+//	    }
+	 
 	 @GetMapping("/")
-	    public String home(@RequestParam(defaultValue = "0") int page,
-	                       @RequestParam(defaultValue = "15") int size,
-	                       @RequestParam(defaultValue = "id") String sortBy,
-	                       @RequestParam(defaultValue = "ASC") String direction,
-	                       Model model) {
-
-	        Page<Book> bookPage = bookService.getPaginatedBooks(page, size, sortBy, direction);
-
-	        model.addAttribute("books", bookPage.getContent());
-	        model.addAttribute("currentPage", page);
-	        model.addAttribute("totalPages", bookPage.getTotalPages());
-	        model.addAttribute("sortBy", sortBy);
-	        model.addAttribute("direction", direction);
-
-	        return "index";
-	    }
+	 public String getAllBooks(Model model) {
+	     List<Book> books = bookService.getAllBooks();
+	     model.addAttribute("books", books);
+	     return "index"; // This will render index.jsp with all books
+	 }
 	 
 	 @GetMapping("/new")
 	 public String showAddBookPage() {
@@ -76,7 +83,7 @@ public class UserController {
 //	     }
 
 	     // Save the image file
-	     String uploadDir = "uploads/";
+		 String uploadDir = "src/main/resources/static/uploads/";
 	     String fileName = UUID.randomUUID() + "_" + imageFile.getOriginalFilename();
 	     Path imagePath = Paths.get(uploadDir + fileName);
 	     Files.createDirectories(imagePath.getParent());
@@ -89,10 +96,16 @@ public class UserController {
 	     addBookRequest.setDescription(description);
 	     addBookRequest.setCopies(copies);
 	     addBookRequest.setCategory(category);
-	     addBookRequest.setImg("/" + uploadDir + fileName); // relative path to be used in HTML
+	     addBookRequest.setImg("/uploads/" + fileName);// relative path to be used in HTML
 
 	     adminService.postBook(addBookRequest);
 
 	     return "redirect:/books/?success=true";
+	 }
+	 
+	 @GetMapping("/delete/{bookId}")
+	 public String deleteBook(@PathVariable Long bookId) throws Exception {
+	     adminService.deleteBook(bookId);
+	     return "redirect:/books/?deleted=true";
 	 }
 }

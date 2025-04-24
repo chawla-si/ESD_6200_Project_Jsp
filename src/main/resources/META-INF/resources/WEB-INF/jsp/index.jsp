@@ -30,6 +30,10 @@
     <p style="color:green;">Book added successfully!</p>
 </c:if>
 
+<c:if test="${param.deleted == 'true'}">
+    <p style="color: red;">Book deleted successfully!</p>
+</c:if>
+
 <table>
     <thead>
         <tr>
@@ -60,8 +64,8 @@
                     </c:if>
                 </td>
                 <td>
-                    <a href="/edit/${book.id}">Edit</a> |
-                    <a href="/delete/${book.id}" onclick="return confirm('Are you sure?')">Delete</a>
+                    <a href="/books/edit/${book.id}">Edit</a> |
+                    <a href="/books/delete/${book.id}" onclick="return confirm('Are you sure?')">Delete</a>
                 </td>
             </tr>
         </c:forEach>
