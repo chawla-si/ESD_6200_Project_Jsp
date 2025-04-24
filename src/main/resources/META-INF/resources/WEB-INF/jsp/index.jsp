@@ -65,7 +65,20 @@
                 </td>
                 <td>
                     <a href="/books/edit/${book.id}">Edit</a> |
-                    <a href="/books/delete/${book.id}" onclick="return confirm('Are you sure?')">Delete</a>
+                    <a href="/books/delete/${book.id}" onclick="return confirm('Are you sure?')">Delete</a> |
+					<!-- Form to Increase Quantity -->
+					<form action="/books/increase/${book.id}" method="post" style="display:inline;">
+					    <input type="hidden" name="_method" value="put"/>
+					    <input type="hidden" name="_csrf" value="${_csrf.token}"/>
+					    <button type="submit">Increase</button>
+					</form> |
+					   
+					   <!-- Form to Decrease Quantity -->
+					   <form action="/books/decrease/${book.id}" method="post" style="display:inline;">
+					       <input type="hidden" name="_method" value="put"/>
+					       <button type="submit">Decrease</button>
+					   </form>
+					                
                 </td>
             </tr>
         </c:forEach>
@@ -84,4 +97,5 @@
 -->
 
 </body>
+
 </html>

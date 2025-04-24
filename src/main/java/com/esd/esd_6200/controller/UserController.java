@@ -108,4 +108,17 @@ public class UserController {
 	     adminService.deleteBook(bookId);
 	     return "redirect:/books/?deleted=true";
 	 }
+	 
+	 @PutMapping("/increase/{bookId}")
+	    public String increaseBookQuantity(@PathVariable Long bookId) throws Exception {
+	        adminService.increaseBookQuantity(bookId);
+	        return "redirect:/books/?updated=true";
+	    }
+
+	    // Decrease book quantity
+	    @PutMapping("/decrease/{bookId}")
+	    public String decreaseBookQuantity(@PathVariable Long bookId) throws Exception {
+	        adminService.decreaseBookQuantity(bookId);
+	        return "redirect:/books/?updated=true";
+	    }
 }
